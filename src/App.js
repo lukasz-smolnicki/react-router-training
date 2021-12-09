@@ -1,7 +1,9 @@
 import React from 'react'
 import './App.css';
-import { BrowserRouter, Link } from 'react-router-dom'
-
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+const Home = () => <h1>Strona główna</h1>
+const News = () => <h1>Aktualności</h1>
+const Contact = () => <h1>Kontakt</h1>
 class App extends React.Component {
   render() {
     return (
@@ -20,7 +22,11 @@ class App extends React.Component {
             </nav>
           </header>
           <section>
-            Strona - witaj
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
           </section>
         </div>
       </BrowserRouter>
